@@ -1,0 +1,24 @@
+# Pastas de cache do Python (essencial)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente Virtual
+venv/
+env/
+
+# DADOS SENSÍVEIS OU PESADOS
+produtosExportados2.html
+produtosExportados.html
+nao_encontrados.txt
+
+# RESULTADOS
+fotos_arapiraca_final/
+fotos_validadas/
+
+# Configurações de IDE
+.vscode/
+.idea/
+
+# Drivers de Navegador
+chromedriver.exe
