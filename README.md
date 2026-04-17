@@ -79,16 +79,16 @@ python main.py
 [x] Navegação híbrida (Setas laterais e categorias)
 
 
-⚖️ Licença e Direitos Autorais
+## ⚖️ Licença e Direitos Autorais
 Copyright (c) 2026 DA Distribuidora Arapiraca Todos os direitos reservados.
 
 Este software é propriedade exclusiva da DA Distribuidora Arapiraca. É estritamente proibido copiar, modificar, distribuir ou utilizar este software, no todo ou em parte, sem autorização prévia e por escrito da DA Distribuidora Arapiraca.
 
 Este sistema foi desenvolvido para uso interno exclusivo. Qualquer uso não autorizado estará sujeito às penalidades previstas na Lei nº 9.610/1998 (Lei de Direitos Autorais) e demais legislações aplicáveis.
 
-👨‍💻 Desenvolvedor
-José Willames de Almeida Barbosa Engenheiro de Software 
-*TI — DA Distribuidora Arapiraca 
-*🎓 Formado em Ciência da Computação 
-*🎓 Pós-graduando em Segurança da Informação e Análise Forense 
-*📍 Arapiraca, Alagoas — Brasil
+## 👨‍💻 Desenvolvedor
+### José Willames de Almeida Barbosa - Engenheiro de Software 
+* TI — DA Distribuidora Arapiraca 
+* 🎓 Formado em Ciência da Computação 
+* 🎓 Pós-graduando em Segurança da Informação e Análise Forense 
+* 📍 Arapiraca, Alagoas — Brasil
