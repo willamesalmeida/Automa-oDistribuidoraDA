@@ -23,7 +23,6 @@ O sistema foi criado para automatizar a ponte entre o e-commerce (**WooCommerce*
 | **Webdriver-Manager** | Gestão automatizada de drivers do navegador |
 
 ## 📁 Estrutura do Projeto
-
 ```text
 AutomacaoFotos/
 ├── fotos_arapiraca_final/  ← Fotos baixadas (Ignorado no Git)
@@ -34,89 +33,8 @@ AutomacaoFotos/
 ├── .gitignore              ← Filtro de arquivos para o repositório
 ├── README.md               ← Documentação do sistema
 └── requirements.txt        ← Dependências do projeto ```
-Tens toda a razão, Willames. Houve uma quebra na formatação do bloco anterior. Para um Engenheiro de Software e especialista em Segurança, o README tem de estar impecável, com a sintaxe Markdown correta para que o GitHub renderize tudo perfeitamente.
+```
 
-Aqui está o ficheiro completo e corrigido, com a tua biografia e formação devidamente integradas dentro da estrutura:
-
-Markdown
-# 🤖 Automação de Ativos Digitais — DA Distribuidora Arapiraca
-
-Sistema interno de extração, validação e sincronização de imagens de produtos, desenvolvido para uso exclusivo da **DA Distribuidora Arapiraca**.
-
-## 📋 Sobre o Projeto
-
-O sistema foi criado para automatizar a ponte entre o e-commerce (**WooCommerce**) e o ERP (**TOTVS WinThor**), permitindo:
-* **Scraping de Alta Performance:** Navegação automatizada no site para coleta de imagens originais de alta resolução.
-* **Validação Fuzzy:** Comparação inteligente de nomes de produtos (Site vs. WinThor) para garantir a integridade dos dados.
-* **Mapeamento Multi-Código:** Tratamento avançado para produtos com múltiplos SKUs ou códigos vinculados (ex: tanques e conexões).
-* **Gestão de Acervo:** Download organizado e renomeação automatizada baseada na codificação interna do ERP.
-
-## 🖥️ Tecnologias Utilizadas
-
-| Tecnologia | Versão | Finalidade |
-| :--- | :--- | :--- |
-| **Python** | 3.12+ | Linguagem principal do sistema |
-| **Selenium** | 4.x | Automação e orquestração de navegador |
-| **BeautifulSoup4** | 4.x | Parsing e leitura de base de dados HTML (WinThor) |
-| **RapidFuzz** | — | Algoritmo de similaridade de strings (Levenshtein) |
-| **Requests** | — | Gerenciamento de downloads e requisições HTTP |
-| **Regex (re)** | — | Extração e sanitização de múltiplos códigos |
-| **Webdriver-Manager**| — | Gestão automatizada de drivers do navegador |
-
-## 📁 Estrutura do Projeto
-
-```text
-AutomacaoFotos/
-├── fotos_arapiraca_final/  ← Fotos baixadas (Ignorado no Git)
-├── main.py                 ← Orquestrador principal do sistema
-├── scraper_site.py         ← Lógica de navegação e extração de dados
-├── leitor_html.py          ← Módulo de integração com base WinThor
-├── validador.py            ← Motor de comparação fuzzy de strings
-├── .gitignore              ← Filtro de arquivos para o repositório
-├── README.md               ← Documentação técnica do sistema
-└── requirements.txt        ← Lista de dependências para instalação
-
-Tens toda a razão, Willames. Houve uma quebra na formatação do bloco anterior. Para um Engenheiro de Software e especialista em Segurança, o README tem de estar impecável, com a sintaxe Markdown correta para que o GitHub renderize tudo perfeitamente.
-
-Aqui está o ficheiro completo e corrigido, com a tua biografia e formação devidamente integradas dentro da estrutura:
-
-Markdown
-# 🤖 Automação de Ativos Digitais — DA Distribuidora Arapiraca
-
-Sistema interno de extração, validação e sincronização de imagens de produtos, desenvolvido para uso exclusivo da **DA Distribuidora Arapiraca**.
-
-## 📋 Sobre o Projeto
-
-O sistema foi criado para automatizar a ponte entre o e-commerce (**WooCommerce**) e o ERP (**TOTVS WinThor**), permitindo:
-* **Scraping de Alta Performance:** Navegação automatizada no site para coleta de imagens originais de alta resolução.
-* **Validação Fuzzy:** Comparação inteligente de nomes de produtos (Site vs. WinThor) para garantir a integridade dos dados.
-* **Mapeamento Multi-Código:** Tratamento avançado para produtos com múltiplos SKUs ou códigos vinculados (ex: tanques e conexões).
-* **Gestão de Acervo:** Download organizado e renomeação automatizada baseada na codificação interna do ERP.
-
-## 🖥️ Tecnologias Utilizadas
-
-| Tecnologia | Versão | Finalidade |
-| :--- | :--- | :--- |
-| **Python** | 3.12+ | Linguagem principal do sistema |
-| **Selenium** | 4.x | Automação e orquestração de navegador |
-| **BeautifulSoup4** | 4.x | Parsing e leitura de base de dados HTML (WinThor) |
-| **RapidFuzz** | — | Algoritmo de similaridade de strings (Levenshtein) |
-| **Requests** | — | Gerenciamento de downloads e requisições HTTP |
-| **Regex (re)** | — | Extração e sanitização de múltiplos códigos |
-| **Webdriver-Manager**| — | Gestão automatizada de drivers do navegador |
-
-## 📁 Estrutura do Projeto
-
-```text
-AutomacaoFotos/
-├── fotos_arapiraca_final/  ← Fotos baixadas (Ignorado no Git)
-├── main.py                 ← Orquestrador principal do sistema
-├── scraper_site.py         ← Lógica de navegação e extração de dados
-├── leitor_html.py          ← Módulo de integração com base WinThor
-├── validador.py            ← Motor de comparação fuzzy de strings
-├── .gitignore              ← Filtro de arquivos para o repositório
-├── README.md               ← Documentação técnica do sistema
-└── requirements.txt        ← Lista de dependências para instalação
 🚀 Como Executar
 Requisitos
 Python 3.12 ou superior
@@ -144,6 +62,7 @@ Execute o sistema:
 
 Bash
 python main.py
+
 📌 Funcionalidades Implementadas
 [x] Extração de nomes, códigos e URLs de imagem
 
@@ -159,6 +78,7 @@ python main.py
 
 [x] Navegação híbrida (Setas laterais e categorias)
 
+
 ⚖️ Licença e Direitos Autorais
 Copyright (c) 2026 DA Distribuidora Arapiraca Todos os direitos reservados.
 
@@ -167,4 +87,8 @@ Este software é propriedade exclusiva da DA Distribuidora Arapiraca. É estrita
 Este sistema foi desenvolvido para uso interno exclusivo. Qualquer uso não autorizado estará sujeito às penalidades previstas na Lei nº 9.610/1998 (Lei de Direitos Autorais) e demais legislações aplicáveis.
 
 👨‍💻 Desenvolvedor
-José Willames de Almeida Barbosa Engenheiro de Software | TI — DA Distribuidora Arapiraca * 🎓 Formado em Ciência da Computação * 🎓 Pós-graduando em Segurança da Informação e Análise Forense * 📍 Arapiraca, Alagoas — Brasil
+José Willames de Almeida Barbosa Engenheiro de Software 
+*TI — DA Distribuidora Arapiraca 
+*🎓 Formado em Ciência da Computação 
+*🎓 Pós-graduando em Segurança da Informação e Análise Forense 
+*📍 Arapiraca, Alagoas — Brasil
