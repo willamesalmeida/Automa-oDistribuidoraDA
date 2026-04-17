@@ -35,7 +35,7 @@ AutomacaoFotos/
 └── requirements.txt        ← Dependências do projeto ```
 ```
 
-🚀 Como Executar
+## 🚀 Como Executar
 Requisitos
 Python 3.12 ou superior
 
@@ -63,7 +63,8 @@ Execute o sistema:
 Bash
 python main.py
 
-📌 Funcionalidades Implementadas
+## 📌 Funcionalidades Implementadas
+
 [x] Extração de nomes, códigos e URLs de imagem
 
 [x] Tratamento de Lazy Load (data-src)
