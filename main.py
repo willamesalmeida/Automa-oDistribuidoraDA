@@ -13,6 +13,7 @@ def iniciar():
     ARQUIVO_ERROS = "nao_encontrados.txt"
     HTML_BASE = "produtosExportados2.html"
 
+    # Criar pastas se não existirem
     for pasta in [PASTA_VALIDADAS, PASTA_NAO_VALIDADAS]:
         if not os.path.exists(pasta):
             os.makedirs(pasta)
@@ -26,27 +27,54 @@ def iniciar():
     driver = scraper_site.configurar_driver()
     wait = WebDriverWait(driver, 25)
 
-    categorias = ["Banheiro"]
+    # Lista completa de categorias
+    categorias = [
+        "Banheiro",
+        "Ferragens para porta",
+        "Ferramentas",
+        "Material de Construção",
+        "Tubos e Conexões",
+        "Acabamentos",
+        "Térmicos",
+        "Vassouras",
+        "Garrafas",
+        "Cuba",
+        "Bombas",
+        "Lâmpada",
+        "Jardim",
+        "Portas e Janelas",
+        "Brocas",
+        "Cubas",
+        "Alicates",
+        "Acessório"
+    ]
 
     contador_total = 0
     inicio_geral = datetime.now()
 
     try:
-        for categoria in categorias:
-            print(f"\n{'='*95}")
-            print(f"🔄 CATEGORIA: {categoria.upper()}")
-            print(f"{'='*95}\n")
+        for idx, categoria in enumerate(categorias, 1):
+            print(f"\n{'='*100}")
+            print(f"🔄 CATEGORIA {idx}/{len(categorias)}: {categoria.upper()}")
+            print(f"{'='*100}\n")
 
+            # Volta para a página inicial
             driver.get("https://distribuidoraarapiraca.com.br/")
             time.sleep(4)
 
+            # Abre menu Categorias
             if not scraper_site.abrir_menu_categorias(driver, wait):
+                print(f"❌ Falha ao abrir menu Categorias - pulando {categoria}")
                 continue
+
+            # Seleciona a categoria
             if not scraper_site.clicar_categoria(driver, wait, categoria):
+                print(f"❌ Falha ao entrar na categoria {categoria} - pulando")
                 continue
 
-            print(f"✅ Categoria carregada: {categoria}\n")
+            print(f"✅ Iniciando processamento da categoria: {categoria}\n")
 
+            # Pega o primeiro produto da categoria
             link_atual = scraper_site.pegar_primeiro_produto_da_pagina(driver, wait)
 
             while link_atual:
@@ -59,7 +87,6 @@ def iniciar():
                     lista_codigos = p['codigos']
                     url_img = p.get('url_img')
 
-                    # SAÍDA LIMPA E ORGANIZADA
                     print(f"[{contador_total}] {link_atual}")
                     print(f"   Produto do Site : {nome_site}")
 
@@ -97,8 +124,9 @@ def iniciar():
 
                 print("-" * 95)
 
-                # Próximo produto
+                # Próximo produto dentro da categoria
                 link_atual = scraper_site.pegar_proximo_link_produto(driver)
+
                 if not link_atual:
                     print(f"🛑 Fim da categoria '{categoria}'.\n")
                     break
@@ -111,14 +139,14 @@ def iniciar():
     finally:
         driver.quit()
         duracao = datetime.now() - inicio_geral
-        print(f"\n{'='*95}")
-        print("🏁 PROCESSO FINALIZADO")
-        print(f"⏱  Duração total       : {duracao}")
-        print(f"📦 Produtos processados : {contador_total}")
-        print(f"✅ Fotos validadas      → fotos_arapiraca_final")
-        print(f"📁 Fotos não validadas  → fotos_nao_validadas")
-        print(f"📄 Erros registrados    → {ARQUIVO_ERROS}")
-        print(f"{'='*95}")
+        print(f"\n{'='*100}")
+        print("🏁 PROCESSO FINALIZADO - TODAS AS CATEGORIAS PROCESSADAS!")
+        print(f"⏱  Duração total         : {duracao}")
+        print(f"📦 Total de produtos processados : {contador_total}")
+        print(f"✅ Fotos validadas        → pasta: fotos_arapiraca_final")
+        print(f"📁 Fotos não validadas    → pasta: fotos_nao_validadas")
+        print(f"📄 Erros registrados      → {ARQUIVO_ERROS}")
+        print(f"{'='*100}")
 
 
 if __name__ == "__main__":
