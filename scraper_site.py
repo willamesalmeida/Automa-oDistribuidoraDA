@@ -72,8 +72,9 @@ def extrair_detalhes(driver, url, wait):
 
         nome = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1.product_title, h1"))).text.strip()
 
-        desc_el = driver.find_element(By.CSS_SELECTOR, ".woocommerce-product-details__short-description, .description")
-        texto_desc = desc_el.text
+        # AJUSTADO: find_elements para não parar o código se não achar descrição
+        desc_els = driver.find_elements(By.CSS_SELECTOR, ".woocommerce-product-details__short-description, .description")
+        texto_desc = desc_els[0].text if desc_els else ""
 
         partes = texto_desc.split(',')
         codigos_encontrados = []
@@ -84,11 +85,15 @@ def extrair_detalhes(driver, url, wait):
                 if cod_limpo not in codigos_encontrados and len(cod_limpo) >= 3:
                     codigos_encontrados.append(cod_limpo)
 
-        img_el = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "img.wp-post-image, .woocommerce-product-gallery__image img")))
-        url_img = img_el.get_attribute("data-src") or img_el.get_attribute("src")
-        if url_img and url_img.startswith('//'):
-            url_img = 'https:' + url_img
-        url_img = url_img.split('?')[0]
+        # AJUSTADO: find_elements para não parar o código se não achar imagem
+        img_els = driver.find_elements(By.CSS_SELECTOR, "img.wp-post-image, .woocommerce-product-gallery__image img")
+        url_img = ""
+        if img_els:
+            img_el = img_els[0]
+            url_img = img_el.get_attribute("data-src") or img_el.get_attribute("src")
+            if url_img and url_img.startswith('//'):
+                url_img = 'https:' + url_img
+            url_img = url_img.split('?')[0]
 
         return {'nome': nome, 'codigos': codigos_encontrados, 'url_img': url_img}
 
@@ -108,7 +113,6 @@ def salvar_imagem_real(url, caminho):
         return False
 
 def salvar_imagem_nao_validada(url_img, codigo, pasta="fotos_nao_validadas"):
-    """Salva apenas com o código como nome"""
     import os
     if not os.path.exists(pasta):
         os.makedirs(pasta)

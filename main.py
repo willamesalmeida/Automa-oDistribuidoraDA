@@ -11,6 +11,7 @@ def iniciar():
     PASTA_VALIDADAS = "fotos_arapiraca_final"
     PASTA_NAO_VALIDADAS = "fotos_nao_validadas"
     ARQUIVO_ERROS = "nao_encontrados.txt"
+    ARQUIVO_SUCESSO = "produtos_validados.txt" # Criando o log de sucesso
     HTML_BASE = "produtosExportados2.html"
 
     # Criar pastas se não existirem
@@ -29,24 +30,10 @@ def iniciar():
 
     # Lista completa de categorias
     categorias = [
-        "Banheiro",
-        "Ferragens para porta",
-        "Ferramentas",
-        "Material de Construção",
-        "Tubos e Conexões",
-        "Acabamentos",
-        "Térmicos",
-        "Vassouras",
-        "Garrafas",
-        "Cuba",
-        "Bombas",
-        "Lâmpada",
-        "Jardim",
-        "Portas e Janelas",
-        "Brocas",
-        "Cubas",
-        "Alicates",
-        "Acessório"
+        "Banheiro", "Ferragens para porta", "Ferramentas", "Material de Construção",
+        "Tubos e Conexões", "Acabamentos", "Térmicos", "Vassouras", "Garrafas",
+        "Cuba", "Bombas", "Lâmpada", "Jardim", "Portas e Janelas", "Brocas",
+        "Cubas", "Alicates", "Acessório"
     ]
 
     contador_total = 0
@@ -106,6 +93,11 @@ def iniciar():
                                 if scraper_site.salvar_imagem_real(url_img, caminho):
                                     print(f"   ✅ STATUS: VALIDADO com {int(score)}% de similaridade")
                                     print(f"      Foto salva como: {cod}.jpg")
+                                    
+                                    # SALVANDO LOG DE SUCESSO IGUAL AO DE ERRO
+                                    with open(ARQUIVO_SUCESSO, "a", encoding="utf-8") as f:
+                                        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M')} | Código: {cod} | Nome Site: {nome_site} | Link: {link_atual}\n")
+                                    
                                 validado_algum = True
                             else:
                                 print(f"   ⚠️  STATUS: Similaridade baixa ({int(score)}%)")
@@ -141,13 +133,12 @@ def iniciar():
         duracao = datetime.now() - inicio_geral
         print(f"\n{'='*100}")
         print("🏁 PROCESSO FINALIZADO - TODAS AS CATEGORIAS PROCESSADAS!")
-        print(f"⏱  Duração total         : {duracao}")
+        print(f"⏱  Duração total          : {duracao}")
         print(f"📦 Total de produtos processados : {contador_total}")
         print(f"✅ Fotos validadas        → pasta: fotos_arapiraca_final")
         print(f"📁 Fotos não validadas    → pasta: fotos_nao_validadas")
         print(f"📄 Erros registrados      → {ARQUIVO_ERROS}")
         print(f"{'='*100}")
-
 
 if __name__ == "__main__":
     iniciar()
